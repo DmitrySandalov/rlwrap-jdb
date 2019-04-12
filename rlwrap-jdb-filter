@@ -264,7 +264,7 @@ $filter->prompt_handler(sub {
 
 sub parse_output {
     my($s) = @_;
-    $vm_running = 1 if $s =~ /^VM Started:/m;
+    $vm_running = 1 if $s =~ /^(VM Started|Breakpoint hit):/m;
     # parse the current class
     if ($s =~ /: "thread=.*?", ([a-zA-Z.\$]+)\.[a-zA-Z]+\(\), line=(\d+)/) {
         $current_class = $1;
